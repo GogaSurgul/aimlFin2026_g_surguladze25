@@ -48,6 +48,7 @@ CNNs can be trained to classify these images as malicious or benign. This approa
 
 Such image-based malware detection improves accuracy and reduces manual feature engineering.
 
+For example, a dataset may consist of labeled malware and benign binary files converted into 28x28 grayscale images. The model is trained using cross-entropy loss and optimized with stochastic gradient descent.
 ---
 
 ## 5. Example Python Implementation
