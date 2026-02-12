@@ -81,6 +81,15 @@ model = SimpleCNN()
 print(model)
 ```
 
+### Model Output Example
+
+```python
+# Simulated input (batch_size=1, grayscale 28x28 image)
+sample_input = torch.randn(1, 1, 28, 28)
+
+output = model(sample_input)
+print("Model raw output:", output)
+print("Predicted class:", torch.argmax(output, dim=1))
 ---
 
 ## 6. Feature Map Visualization
