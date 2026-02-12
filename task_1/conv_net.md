@@ -65,8 +65,13 @@ class SimpleCNN(nn.Module):
     def __init__(self):
         super(SimpleCNN, self).__init__()
         
+        # Convolution layer
         self.conv1 = nn.Conv2d(1, 32, kernel_size=3)
+        
+        # Pooling layer
         self.pool = nn.MaxPool2d(2, 2)
+        
+        # Fully connected layers
         self.fc1 = nn.Linear(32 * 13 * 13, 128)
         self.fc2 = nn.Linear(128, 2)
 
@@ -77,20 +82,30 @@ class SimpleCNN(nn.Module):
         x = self.fc2(x)
         return x
 
+# Initialize model
 model = SimpleCNN()
 print(model)
 ```
 
 ### Model Output Example
 
+The following example demonstrates how the model processes an input image and produces a prediction.
+
 ```python
 # Simulated input (batch_size=1, grayscale 28x28 image)
 sample_input = torch.randn(1, 1, 28, 28)
 
+# Forward pass
 output = model(sample_input)
-print("Model raw output:", output)
+
+print("Model raw output (logits):", output)
 print("Predicted class:", torch.argmax(output, dim=1))
----
+```
+
+In this example, the model outputs raw scores (logits) for two classes (e.g., benign and malicious).  
+The `argmax` function selects the class with the highest score as the predicted label.
+
+
 
 ## 6. Feature Map Visualization
 
