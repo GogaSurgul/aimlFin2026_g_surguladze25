@@ -1,1 +1,1 @@
-# Transformer Network
+# DDoS Detection via Regression
